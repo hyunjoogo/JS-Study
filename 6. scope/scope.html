@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scope</title>
+</head>
+<body>
+
+
+</body>
+<script>
+  function book() {
+    // 2. function add(param) {...} function 오브젝트 생성
+      // add 함수가 속한 스코프를 add 오브젝트의 [[Scope]]에 설정
+      // add 이름을 선언적 환경 레코드에 바인딩
+    // 3. var 변수 초기화
+      // point 이름을 레코드에 바인딩
+      // get 이름을 레코드에 바인딩
+      // 바인딩으로 함수와 변수의 식별자가 해결됨
+    // 4. 코드 실행
+      // point 변수에 100할당
+      // function 오브젝트 생성, get에 할당
+      // get 함수가 속한 스코프를 get 오브젝트의 [[Scope]]에 설정
+      // add(200); 호출 => add() 함수 내부의 point += param; 실행
+        // 먼저 레코드에서 point 이름을 찾는다.
+        // 없으므로 add 오브젝트의 [[Scope]]를 스코프로 사용
+        // book 오브젝트가 스코프이며 point가 있으므로 값을 더한다.
+      // get(); 호출 => get() 함수 내부의 return point; 실행
+        // 먼저 레코드에서 point 이름을 찾는다.
+        // 없으므로 add 오브젝트의 [[Scope]]를 스코프로 사용
+        // book 오브젝트가 스코프이며 point가 있으므로 값을 더한다.
+    var point = 100;
+
+    function add(param) {
+      point += param;
+    }
+
+    var get = function () {
+      return point;
+    };
+    add(200);
+    console.log(get());
+  }
+
+  book(); // 1. 마지막 줄에서 book() 함수 호출
+</script>
+</html>
