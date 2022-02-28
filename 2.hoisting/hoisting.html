@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hoisting</title>
+</head>
+<body>
+
+</body>
+<script>
+	// 1. 함수 선언문 해석
+		// function book() {} (function 오브젝트 생성)
+	// 2. 변수 초기화
+		// var result = undefined;
+		// book = function() {return "함수 표현식";}
+		// 이미 scope에 book이 할당되어 있으므로 무시한다.
+	// 3. 코드 실행
+		// 	var result = book();
+		// book 함수를 호출 => scope에 book 함수가 있음
+			// => 값을 구해봄 => function 오브젝트이므로 함수 호출 가능
+			// => 값을 리턴함
+		// result 변수에 book 함수의 리턴값을 할당해줌
+	var result = book();
+	console.log(result);
+
+	function book() {
+		return "호이스팅"
+	};
+
+	book = function(){
+		return "함수 표현식";
+	}
+</script>
+</html>

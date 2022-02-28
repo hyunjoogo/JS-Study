@@ -15,9 +15,9 @@ function book() {
   // var title = "JS책"; (title 변수에 "JS책" 할당)
   // function getBook() {};는 선언이므로 패스
   // var readBook = function (){};
-  // function 오브젝트를 생성하여 readBook 변수에 할당
-  // readBook이 function 오브젝트가 되므로 호출 가능
-  // 만약 이전에 readBook을 호출하면 error가 난다. (readBook())
+    // function 오브젝트를 생성하여 readBook 변수에 할당
+    // readBook이 function 오브젝트가 되므로 호출 가능
+    // 만약 이전에 readBook을 호출하면 error가 난다. (readBook())
   // getBook(); 함수를 호출
 
   debugger;

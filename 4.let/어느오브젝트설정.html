@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>let 변수와 this</title>
+</head>
+<body>
+
+</body>
+<script>
+	function showLocal() {
+		var apple = "var 변수"
+		let sports = "축구"; // let 변수는 Script 블록 설정
+		{
+			let phone = "아이폰"; // Block 블록에 설정
+			var apple2 = "맥북"; // Global 블록 설정 (window 오브젝트)
+		}
+	}
+
+	showLocal();
+</script>
+</html>

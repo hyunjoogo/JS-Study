@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>codingTime</title>
+</head>
+<body>
+
+</body>
+<script>
+
+	function book() {
+		// 2. 함수 선언문 해석
+			// function getBook() {책2} (function 오브젝트 생성)
+		// 3. 변수 초기화
+			// var getBook을 초기화하려고 했지만
+				// 이미 getBook이라는 이름으로 function 오브젝트가 존재해서
+			// 초기화하지 않고 넘어감
+		// 4. 코드 실행
+			// var getBook = function () {return "책1";}
+				// 이미 { getBook : {책2} } 있으므로 value값만 {책1로 변경}
+			// console.log(getBook()); 실행
+				// getBook() 함수 호출 => 값 책1 리턴
+
+		var getBook = function () {
+			return "책1";
+		}
+
+		console.log(getBook); // var getBook = function () {return "책1";}
+		console.log(getBook()); // 책1
+
+		function getBook() {
+			return "책2";
+		}
+		console.log(getBook()); // 책1
+	};
+	book(); // 1. book 실행
+</script>
+</html>

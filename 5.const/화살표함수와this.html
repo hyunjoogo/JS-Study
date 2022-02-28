@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>화살표함수와 this</title>
+</head>
+<body>
+
+</body>
+<script>
+	'use strict'
+
+	function book() {
+		function getPoint() {
+			console.log(this); // global 변수를 참조한다.
+		}
+		getPoint();
+	}
+	window.book();
+
+	var point = 100;
+	function sports() {
+		const getPoint = () => {
+			console.log(this.point);
+		}
+		getPoint();
+	}
+	window.sports();
+</script>
+</html>
