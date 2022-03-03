@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>실행-콘텍스트</title>
+</head>
+<body>
+
+</body>
+<script>
+  function book() {
+    function get() {
+      return point;
+    };
+    var point = 123;
+    return get();
+  }
+
+  console.log(book());
+</script>
+</html>
