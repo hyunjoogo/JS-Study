@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>파라미터값매핑</title>
+</head>
+<body>
+
+</body>
+<script >
+  // 1. 실행 콘텍스트로 넘겨준 파라미터 값을 param이라고 부름
+  // 2. getTotal 오브젝트의 [[FormalParameters]]에서
+  // - 호출된 함수의 파라미터를 구함
+  // - [[FormalParameters]]의 형태는 ["one", "two"] 형태이고
+  // - function 오브젝트를 생성할 때 설정한다.
+  // 3. [[FormalParameters]] 배열을 하나씩 읽는다.
+  // 4. param에서 index번째의 값을 구한다.
+  // - 인덱스에 값이 없으면 undefined 반환
+  // 5. name의 파라미터 이름과 4번에서 구한 값을
+  // - 선언적 환경 레코드에
+  // - {one: 11, two:22} 형태로 설정
+  // - 같은 이름이 있으면 값이 대체된다.
+  // 6. name을 전부 읽을 때까지 3번에서 5번까지 반복
+
+  var obj = {};
+  obj.getTotal = function (one, two) {
+    return one + two;
+  };
+  console.log(obj.getTotal(11, 22, 77));
+</script>
+</html>
