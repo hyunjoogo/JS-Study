@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this와bind</title>
+</head>
+<body>
+
+</body>
+<script>
+  // var obj = book.get.bind(book);
+  //    - book.get()을 호출하지 않고
+  //    - function 오브젝트를 생성하여 반환
+  //    - 생성한 function 오브젝트를 생성한 오브젝트의 [[TargetFunction]]에 설정
+  //    - 처리를 나누어서 하므로 저장 필요
+  // console.log(typeof obj);
+  //    - obj의 타입은 function 오브젝트
+  // bind()의 첫번째 파라미터
+  //    - get() 함수에서 this로 참조할 오브젝트 작성
+  //    - get() 앞에 작성한 오브젝트를 this로 참조하지 않음
+  //    - 작성하지 않으면 undefined 설정
+  //    - 생성한 function 오브젝트의 [[BoundThis]]에 설정
+  // var result = obj();
+  //    - bind()로 생성한 function 오브젝트 호출
+  //    - book.get() 함수가 호출
+  // return this.point;
+  //    - this가 [[BoundThis]]를 참조
+  //    - 즉, book 오브젝트를 참조하므로 123 반환
+
+
+  var book = {
+    point: 123,
+    get: function () {
+      return this.point;
+    }
+  };
+
+  var obj = book.get.bind(book);
+  console.log(typeof obj);
+  var result = obj();
+  console.log(result);
+</script>
+</html>

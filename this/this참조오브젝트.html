@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this참조오브젝트</title>
+</head>
+<body>
+
+</body>
+<script>
+  // var book = {
+  //   point : 100,
+  //   member : {
+  //     point : 200,
+  //     get : function () {
+  //       console.log(this === book.member);
+  //       console.log(this.point);
+  //     }
+  //   }
+  // };
+  //
+  // book.member.get();
+
+  // 1. book.member.get() 호출
+  //    - this가 member 오브젝트 참조
+  //    - book은 get()을 호출하는 경로 역할
+  // 2. console.log(this === book.member);
+  //    - this가 book.member를 참조하기 때문
+  //    - 즉, this 바인딩 컴포넌트에 book.member 오브젝트가 설정
+  // 3. console.log(this.point);
+  //    - this가 book.member를 참조하므로
+  //    - book.point 값인 100을 출력하지 않고
+  //    - book.member.point 값인 200을 출력
+
+  // 1. 마지막 줄에서 fn()을 호출하면
+  //    - book.get() 함수가 호출
+  // 2. console.log(this === window);
+  //    - this는 book의 오브젝트를 참조, 글로벌 오브젝트
+  //    - window는 글로벌 오브젝트를 참조함
+  //    - 그래서 true;
+  // 3. console.log(this.value);
+  //    - this는 book의 오브젝트를 참조, 글로벌 오브젝트
+  //    - 글로벌 오브젝트에 value라는 프로퍼티가 없으므로 undefined 출력
+ //  var book = {
+ //    value : 123,
+ //    get : function () {
+ //      var value = 456;
+ //      console.log(this === window);
+ //      console.log(this.value);
+ //    }
+ //  };
+ // var fn = book.get;
+ // fn();
+
+
+  // 1. 마지막 줄에서 book()을 호출
+  // 2. this.getTitle(); 실행
+  //    - book() 함수는 글로벌 함수로
+  //    - 함수 내부에서 this는 글로벌 오브젝트를 참조
+  //    - 그러므로 글로벌 오브젝트의
+  //    - function getTitle() {console.log("HTML 책");}로 이동
+  //    - HTML 책 출력
+  // 3. getTitle() 실행
+  //    - book 함수의 선언적 환경 레코드에서 getTitle을 찾아 실행
+  //    - function getTitle() {console.log("JS책");}로 이동
+  //    - JS책 출력
+
+
+
+ function getTitle() {
+   console.log("HTML 책");
+ }
+
+ var book = function () {
+   function getTitle() {
+     console.log("JS책");
+   };
+   this.getTitle();
+   getTitle();
+ }
+
+ book();
+
+
+  //
+
+
+
+
+</script>
+</html>

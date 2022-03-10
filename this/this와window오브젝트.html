@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this와window오브젝트</title>
+</head>
+<body>
+
+</body>
+
+<script>
+  window.onload = function () {
+    console.log(this === window); // true
+  }
+  // onload 앞에 작성 window를 함수안에서 this로 참조하게 된다.
+
+  window.onload = function () {
+    var value = 100;
+    console.log(this.value);  // undefined
+  }
+  // this는 window 오브젝트를 참조하므로 this.value로 지역 변수에 악세스 할 없다.
+  // var value는 지역변수
+
+  window.onload = function () {
+    this.value = 100;
+    console.log(window.value);  // 100
+  }
+
+  // this는 window 오브젝트를 참조
+
+  function book() {
+    'use strict';
+    return this;
+  }
+  var obj1 = book();
+  var obj2 = new book();
+  var obj3 = window.book()
+
+</script>
+</html>

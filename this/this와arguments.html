@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this와arguments</title>
+</head>
+<body>
+
+</body>
+<script>
+  var obj = {0: 10, 1: 20, 2: 30};
+  var data = [4, 5, 6];
+
+  function get() {
+    for (k = 0; k < arguments.length; k++) {
+      console.log(arguments[k] + this[k]);
+    }
+  }
+
+  get.apply(obj, data);
+  // 1. get.apply(obj, data);
+  //    - get() 함수에서 obj를 this로 참조
+  // 2. 두번째 파라미터 [4,5,6]을
+  //    - arguments를 사용하여 계산
+  //    - 파라미터 수가 유동적이므로 arguments가 편리
+  // 3. get()의 함수 코드는 바뀌지 않으며
+  //    - 넘겨 주는 파라미터 값과
+  //    - this로 참조할 오브젝트만 변경하면 됨
+
+
+</script>
+</html>

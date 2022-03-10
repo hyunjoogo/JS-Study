@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this와call메소드</title>
+</head>
+<body>
+
+</body>
+<script>
+  "use strict";
+
+  // 1. get.call(this, 20);
+  //    - 첫번째 파라미터에 this 작성
+  //    - 이 this는 글로벌 오브젝트를 참조
+  // 2. return param + this.value;
+  //    - this가 글로벌 오브젝트를 참조하므로
+  //    - var value = 100을 사용
+  // ---- call()을 사용하지 않는다면 ----
+  // 3. return param + this.value;
+  //    - get(20)으로 호출하면
+  //    - get(20)앞에 오브젝트가 작성되지 않아서 undefined를 참조
+  //    - 에러 발생
+
+  var value = 100;
+  function get(param) {
+    return param + this.value;
+  }
+
+  var result = get.call(this, 20);
+  console.log(result); // 120
+
+
+  // 1. get.call(value, 50);
+  //    - 이 this는 value 오브젝트를 참조
+  // 2. return this.base * this.rate + value;
+  //    - this가 value 오브젝트를 참조하므로
+  //    - {base : 20, rate : 30}의 base와 rate를 사용
+
+  var get = function (value) {
+    return this.base * this.rate + value;
+  }
+  var value = {base : 20, rate : 30};
+  var result = get.call(value, 50);
+  console.log(result); // 650
+
+  var book = {
+    value : 123,
+    get : function () {
+      console.log('book.get', this.value);
+    },
+    point : {
+      value : 456,
+      get : function () {
+        console.log('book.point.get', this.value);
+      }
+    }
+  };
+  book.point.get.call(book); // book.point.get 123
+  book.point.get.call(book.point); // book.point.get 456
+
+  book.get.call(book);  // book.get 123
+  book.get.call(book.point);  // book.get 456
+
+  // 1. book.point.get.call(book);
+  //    - book.point의 get() 호출 (get() 함수 앞에 있는)
+  //    - get()에서 this로 book 오브젝트 참조
+  //    - this.value가 book.value이므로 123 출력
+
+  // 2. book.point.get.call(book.point);
+  //    - book.point의 get() 호출 (get() 함수 앞에 있는)
+  //    - get()에서 this로 book.point 오브젝트 참조
+  //    - this.value가 book.point.value이므로 456 출력
+
+  // 3. book.get.call(book);
+  //    - book의 get() 호출 (get() 함수 앞에 있는)
+  //    - get()에서 this로 book 오브젝트 참조
+  //    - this.value가 book.value이므로 123 출력
+
+  // 4. book.get.call(book.point);
+  //    - book의 get() 호출 (get() 함수 앞에 있는)
+  //    - get()에서 this로 book.point 오브젝트 참조
+  //    - this.value가 book.point.value이므로 456 출력
+
+
+
+
+</script>
+</html>

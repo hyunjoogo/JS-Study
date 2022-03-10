@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>생성자 함수</title>
+</head>
+<body>
+
+</body>
+<script>
+
+
+
+  function Book(point) {
+    this.point = point;
+  }
+  Book.prototype.getPoint = function () {
+    return this.point;
+  }
+
+  var obj = new Book(10)
+  obj.getPoint();
+
+  // 1. new Book(10) 실행
+  //    - Book 오브젝트의 [[Construct]] 호출
+  //    - 파라미터 값을 [[Construct]]로 넘겨준다.
+  // 2. 빈 Object를 생성
+  //    - 이것이 인스턴스
+  //    - 지금은 빈 오브젝트 {} 이며, 이제부터 하나씩 채워간다.
+  // 3. 오브젝트에 내부 처리용 프로퍼티를 설정
+  //    - 공통 프로퍼티와 선택적 프로퍼티
+  // 4. 오브젝트의 [[Class]]에 "Object" 설정
+  //    - 따라서 생성한 인스턴스 타이은 Object
+  // 5. Book.prototype에 연결된 프로퍼티(메소드)를
+  //    - 생성한 인스턴스의 [[Prototype]]에 설정
+  //    - constructor도 같이 설정
+  // Book인스턴스 : {
+  //   point : 10,
+  //   __proto__ = {
+  //     constructor : Book,
+  //     getPoint : function () {},
+  //     __proto__ : Object
+  //   }
+  // }
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this와인스턴스</title>
+</head>
+<body>
+</body>
+<script>
+  var book = {};
+  book.Point = function (point) {
+    this.point = point;
+  }
+  book.Point.prototype.getPoint =
+    function () {
+      console.log(this.point);
+    };
+  var obj = new book.Point(100);
+  obj.getPoint();
+  // 1. var obj = new book.Point(100);
+  //     - book.Point 인스턴스를 생성
+  // 2. this.point = point;
+  //     - this가 생성한 인스턴스를 참조하므로 point는 인스턴스 프로퍼티가 된다.
+  //     - 이 놀리로 인스턴스마다 프로퍼티 이름과 값을 유지할 수 있다.
+  // 3. obj.getPoint();
+  //    - obj 인스턴스의 getPoint() 메소드 호출
+  // 4. console.log(this.point);
+  //    - obj.getPoint()로 호출, this가 obj 참조
+  //    - obj는 book.Point 인스턴스
+  //    - book.Point 인스턴스의 point 값 출력
+
+</script>
+</html>

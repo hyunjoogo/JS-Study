@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this와콜백함수</title>
+</head>
+<body>
+
+</body>
+<script>
+  var obj = {value: 100};
+  var data = [5, 6, 7];
+
+  function callback(element, index, data) {
+    return element + this.value;
+  }
+
+  function get(data) {
+    return data.map(callback, obj);
+  }
+
+  var result = get(data);
+  console.log(result);
+
+</script>
+</html>

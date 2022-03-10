@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>prototype메소드직접호출</title>
+</head>
+<body>
+</body>
+<script>
+  function Book(point) {
+    this.point = point;
+  }
+
+  Book.prototype.getPoint = function () {
+    return this.point;
+  };
+
+  var obj = new Book(100);
+  console.log(obj.getPoint());
+
+  console.log(Book.prototype.getPoint());
+
+</script>
+</html>

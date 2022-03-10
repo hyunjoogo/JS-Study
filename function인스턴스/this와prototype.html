@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this와prototype</title>
+</head>
+<body>
+
+</body>
+<script>
+  function Book() {
+    console.log("1:", this.point);
+  }
+
+  Book.prototype.getPoint = function () {
+    this.setPoint();
+    console.log("2:", this.point);
+  }
+
+  Book.prototype.setPoint = function () {
+    this.point = 100;
+  }
+
+  var obj = new Book();
+  obj.getPoint();
+
+  // 1. function 키워드를 만나서 Book() 함수를 function 오브젝트를 생성
+  // 2. var obj 초기화
+  // 3. 코드 실행
+  // 4. Book.prototype에 getPont 메서드를 할당
+  // 5. Book.prototype에 setPont 메서드를 할당
+  // 6. var obj에 new Book() 할당 및 실행
+  // 7. 엔진이 new 키워드를 만나 빈 Object를 생성
+  // 8. console.log("1:", this.point); 실행
+  //    - 생성자 함수에서 this는 생성하는 인스턴스 참조
+  //    - 생성하는 인스턴스에 point 프로퍼티가 없더라도 에러가 나지 않고 undefined를 반환
+  // 9. obj.getPoint();
+  //    - this가 메소드를 호출한 인스턴스 참조
+  //      - obj를 참조
+  //    - 즉, 메소드 앞에 작성한 인스턴스 참조
+  // 10. this.setPoint();
+  //    - this가 인스턴스 참조하며
+  //    - 인스턴스에 있는 setPoint() 호출
+  // 11. this.point = 100;
+  //    - this가 인스턴스 참조하며
+  //    - 인스턴스의 point 프로퍼티에 100을 할딩
+</script>
+</html>
