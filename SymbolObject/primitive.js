@@ -26,3 +26,14 @@ for (let value of list) {
 const sym = Symbol("JSON");
 const result = JSON.stringify({[sym]: "ABC"});
 console.log(result); // {}
+
+
+
+if (yourNumber === selectedNumber) {
+  hfourtext.innerText = "You win!";
+} else {
+  hfourtext.innerText = "You lost!";
+}
+  a.appendChild(atext);
+  hfour.appendChild(hfourtext);
+  atext.innerText = `You chose: ${yourNumber}, the machine chose: ${selectedNumber}`;
